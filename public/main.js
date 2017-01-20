@@ -1,32 +1,37 @@
 console.log('testing 123');
 
-
 var button = document.querySelector('.button');
 var body = document.querySelector('body');
 
-var makeNote = function() {
-    var div = document.createElement('div');
-    body.appendChild(div);
-    div.setAttribute('class', 'sheet note');
-    document.querySelector('.note').classList.add('sheet');
-    var span = document.createElement('span');
-    span.setAttribute('class','remove');
-    span.textContent = 'X';
-    span.addEventListener('click', remSpan);
-    div.appendChild(span);
-    var p = document.createElement('p');
-    p.setAttribute('contenteditable', 'true');
-    p.textContent = 'enter text';
-    div.appendChild(p);
-
-    // var d = new date();
-    // var date = document.createElement('h4');
-    // date.setAttribute('id', 'date');
-    // date.textContent = d;
-    // div.appendChild(date);
-
+function makeNote() {
+  var template = $('template').html();
+  var reading = $('input').val();
+  var render = Handlebars.compile(template);
+  var html = render({reading: reading});
+  $(".container").append(html);
+  $.post('/insert', {reading: reading}, function(res){
     noteCount();
+  })
+    // appendTime();
 }
+
+
+var remove = function() {
+
+}
+
+//button for remove
+
+// function appendTime() {
+//     var date = Date();
+//     var time = $('.time');
+//     var totalNotes = $('.note');
+//     // console.log(totalNotes);
+//     // totalNotes.forEach(function(evt) {
+//     //   time.append(date);
+//     // })
+// }
+
 
 button.addEventListener("click", makeNote);
 
@@ -39,6 +44,5 @@ var remSpan = function () {
   this.parentNode.remove();
   noteCount();
 }
-
 
 

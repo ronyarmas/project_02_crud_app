@@ -1,0 +1,43 @@
+
+  <header id="header" class="">
+    <img src="assets/gj-logo.png" alt="">
+    <h1>Glucose Journal</h1>
+  </header>
+
+  <div id="main">
+    <h2>Total entries <span id='notes'>0</span></h2>
+    <h4>Enter Blood Glucose Reading</h4>
+
+    <!-- <form action="" method="POST"> -->
+      <input type="text" name="bgNum" placeholder="Blood Glucose" id="input">
+      <button type="enter" class='button'>Enter</button>
+    <!-- </form> -->
+
+    <form action="delete" method="POST">
+      <button class='button'>Remove</button>
+    </form>
+
+
+    <div class="chartButtons">
+      <button type="" id="daily">Daily</br>Graph</button>
+      <button type="" id="weekly">Weekly</br>Graph</button>
+      <button type="" id="monthly">Monthly</br>Graph</button>
+    </div>
+  </div>
+
+  <div class="container">
+    {{#each vitals}}
+    <div class="sheet note">
+      <span class="remove">X</span>
+      <p contenteditable="true">{{reading}}</p>
+    </div>
+    {{/each}}
+  </div>
+
+<template>
+  <div class="sheet note">
+      <span class="remove">X</span>
+      <p contenteditable="true">\{{reading}}</p>
+      <h5 class="time"></h5>
+  </div>
+</template>

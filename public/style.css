@@ -1,17 +1,68 @@
+
+body {
+  height: 100%;
+  background: url(assets/glucose-background.png);
+
+}
+
+header {
+  display: inline-block;
+  margin-left: 3%;
+  margin-top: 2%;
+}
+
+h1 {
+  display: inline-block;
+}
+
+h2 {
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+}
+
+h1, h2, h4 {
+  font-family: 'Neucha', cursive;
+}
+
+#main {
+  display: inline-block;
+  position: absolute;
+  margin: 5% 15%;
+  /*background-color: rgba(199, 0, 36, .3);*/
+  border-style: groove;
+  border-color: rgba(199, 0, 36, 1);
+}
+
+#input {
+  display: block;
+  margin: 0% auto;
+  width: 106px;
+  text-align: center;
+}
+
 .sheet {
-  background: orange;
+  background: #AB3428;
   float: left;
   width: 150px;
-  height: 150px;
+  height: 75px;
   padding: 15px;
   border: 1px solid black;
   text-align: center;
+  position: relative;
+  margin: 25px 25px;
 }
 
 .button {
   display: block;
-  margin: 30px 0;
-  padding: 0 12px;
+  margin: 10% auto;
+  padding: 2% 10%;
+}
+
+#daily, #weekly, #monthly {
+  float: left;
 }
 
 h3{
@@ -21,5 +72,9 @@ h3{
 .remove {
   display: block;
   text-align: left;
+}
+
+.chartButtons {
+
 }
 
