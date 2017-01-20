@@ -4,7 +4,9 @@ var mongo = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
 var assert = require('assert');
 
-var url = 'mongodb://localhost:27017/patientApp';
+var url = process.env.MONGODB_URI || 'mongodb://localhost:27017/sandbox';
+
+// var url = 'mongodb://localhost:27017/patientApp';
 
 
 router.get('/', function(req, res) {
