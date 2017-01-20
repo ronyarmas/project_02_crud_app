@@ -28,16 +28,36 @@
   <div class="container">
     {{#each vitals}}
     <div class="sheet note">
-      <span class="remove">X</span>
-      <p contenteditable="true">{{reading}}</p>
+      <form action="delete" method="POST">
+      <button class="remove">X</button>
+    </form>
+
+    <form action="/update/:{{this._id}}" method="POST">
+      <input id="input" name="bgNum" value='{{reading}}'>
+      <button id="updateBg" name="updateBg" value={{this._id}}>Update</button>
+    </form>
+
     </div>
     {{/each}}
   </div>
 
 <template>
+
   <div class="sheet note">
-      <span class="remove">X</span>
-      <p contenteditable="true">\{{reading}}</p>
-      <h5 class="time"></h5>
+    <form action="delete" method="POST">
+      <button class="remove">X</button>
+    </form>
+
+    <form action="/update/:{{this._id}}" method="POST">
+      <input id="bgRead" name="bgNum" value='{{reading}}'>
+      <button id="updateBg" name="updateBg" value={{this._id}}>Update</button>
+    </form>
+
+    <h5 class="time"></h5>
   </div>
+
 </template>
+
+
+
+

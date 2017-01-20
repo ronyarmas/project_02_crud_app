@@ -23,7 +23,6 @@ router.post('/insert', function(req, res) {
     reading: req.body.reading,
   };
  latestEntry = req.body.reading;
-
   mongo.connect(url, function(err, db) {
     assert.equal(null, err);
     db.collection('vitals').insertOne(bio, function(err, result) {
@@ -35,6 +34,22 @@ router.post('/insert', function(req, res) {
   });
 });
 
+router.post('/update/:updateBg', function(request, response, next){
+var result = {
+  num: request.body.bgNum
+};
+
+var id = request.body.id;
+
+mongo.connect(url, function(err, db){
+  assert.equal(null, err);
+  db.collection('vitals').updateOne({"_id": objectId(id)}, {$set: result});
+  console.log(result);
+  db.close();
+  response.redirect('/');
+  });
+});
+
 
 router.post('/delete', function(req, res) {
 
@@ -43,5 +58,13 @@ router.post('/delete', function(req, res) {
     db.collection('vitals').remove({reading: latestEntry})
   });
 });
+
+
+
+
+
+
+
+
 
 module.exports = router;

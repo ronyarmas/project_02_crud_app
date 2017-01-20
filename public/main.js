@@ -10,27 +10,18 @@ function makeNote() {
   var html = render({reading: reading});
   $(".container").append(html);
   $.post('/insert', {reading: reading}, function(res){
-    noteCount();
   })
-    // appendTime();
+    noteCount();
+    appendTime();
 }
 
 
-var remove = function() {
-
+function appendTime() {
+    var date = Date();
+    var time = $('.time');
+    var totalNotes = document.querySelector('.note');
+    time.append(date);
 }
-
-//button for remove
-
-// function appendTime() {
-//     var date = Date();
-//     var time = $('.time');
-//     var totalNotes = $('.note');
-//     // console.log(totalNotes);
-//     // totalNotes.forEach(function(evt) {
-//     //   time.append(date);
-//     // })
-// }
 
 
 button.addEventListener("click", makeNote);

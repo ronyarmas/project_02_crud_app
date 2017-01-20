@@ -58,7 +58,7 @@ h1, h2, h4 {
 .button {
   display: block;
   margin: 10% auto;
-  padding: 2% 10%;
+  padding: 1% 5%;
 }
 
 #daily, #weekly, #monthly {
